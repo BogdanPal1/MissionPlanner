@@ -213,6 +213,7 @@ namespace MissionPlanner.GCSViews
             List<string> list = new List<string>();
 
             {
+                list.Add("DO_ENGINE_CONTROL");
                 list.Add("LOITER_UNLIM");
                 list.Add("RETURN_TO_LAUNCH");
                 list.Add("PREFLIGHT_CALIBRATION");

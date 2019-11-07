@@ -2620,7 +2620,7 @@ namespace MissionPlanner.Controls
                                 item.Header + hrs.ToString("00") + ":" + mins.ToString("00") + ":" +
                                 secs.ToString("00"), font, fontsize + 2, _whiteBrush, this.Width / 8, height);
                         }
-                        else if (item.Item.Name == "charge_current" && item.GetValue <= 0.0)
+                        else if (item.Item.Name == "charge_current" && item.GetValue <= 1.0)
                         {
                             drawstring(item.Header + item.GetValue.ToString("0.0"), font, fontsize + 2,
                                 _redBrush, this.Width / 8, height);

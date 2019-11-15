@@ -625,14 +625,15 @@ namespace MissionPlanner.Utilities
                 var dns = Dns.GetHostAddresses("github.com");
                 var dns2 = Dns.GetHostAddresses("raw.githubusercontent.com");
 
+                // Go to the GitHub and make .xml file with parameters
                 if (dns.Length != 0)
                 {
                     if (MissionPlanner.Utilities.Update.dobeta)
                         ParameterMetaDataParser.GetParameterInformation(
-                            ConfigurationManager.AppSettings["ParameterLocationsBleeding"], "ParameterMetaData.xml");
+                            "https://raw.githubusercontent.com/BogdanPal1/ardupilot/pmucan/ArduPlane/Parameters.cpp", "ParameterMetaData.xml");
                     else
                         ParameterMetaDataParser.GetParameterInformation(
-                            ConfigurationManager.AppSettings["ParameterLocations"], "ParameterMetaData.xml");
+                            "https://raw.githubusercontent.com/BogdanPal1/ardupilot/pmucan/ArduPlane/Parameters.cpp", "ParameterMetaData.xml");
                 }
             }
             catch (Exception ex)

@@ -178,10 +178,10 @@ namespace MissionPlanner
         private void BUT_paramgen_Click(object sender, EventArgs e)
         {
             if(MissionPlanner.Utilities.Update.dobeta)
-                ParameterMetaDataParser.GetParameterInformation(/*ConfigurationManager.AppSettings["ParameterLocationsBleeding"]*/
+                ParameterMetaDataParser.GetParameterInformation(
                     "https://raw.githubusercontent.com/BogdanPal1/ardupilot/pmucan/ArduPlane/Parameters.cpp");
             else
-                ParameterMetaDataParser.GetParameterInformation(/*ConfigurationManager.AppSettings["ParameterLocations"]*/
+                ParameterMetaDataParser.GetParameterInformation(
                     "https://raw.githubusercontent.com/BogdanPal1/ardupilot/pmucan/ArduPlane/Parameters.cpp");
 
             ParameterMetaDataRepositoryAPM.Reload();

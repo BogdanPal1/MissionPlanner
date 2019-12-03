@@ -2492,17 +2492,14 @@
         private Controls.MyButton BUT_PayloadFolder;
         private System.Windows.Forms.ToolStripMenuItem setHomeHereToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem groundColorToolStripMenuItem;
-<<<<<<< HEAD
         private Controls.RelayOptions relayOptions1;
         private Controls.RelayOptions relayOptions2;
         private Controls.RelayOptions relayOptions3;
         private Controls.RelayOptions relayOptions4;
         private System.Windows.Forms.ToolStripMenuItem hereLinkVideoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gStreamerStopToolStripMenuItem;
-=======
         private Controls.MyButton BUT_engine_ON;
         private Controls.MyButton BUT_engine_OFF;
         private Controls.MyButton BUT_land;
->>>>>>> b20a307b... ACTION_TAB: add ENG ON, ENG OFF and Land buttons
     }
 }

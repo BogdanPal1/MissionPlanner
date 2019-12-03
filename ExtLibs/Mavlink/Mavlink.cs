@@ -212,6 +212,7 @@ public partial class MAVLink
         new message_info(233, "GPS_RTCM_DATA", 35, 182, 182, typeof( mavlink_gps_rtcm_data_t )),
         new message_info(234, "HIGH_LATENCY", 150, 40, 40, typeof( mavlink_high_latency_t )),
         new message_info(235, "HIGH_LATENCY2", 179, 42, 42, typeof( mavlink_high_latency2_t )),
+        new message_info(240, "GEN_STATUS", 255, 20, 24, typeof( mavlink_gen_status_t )),
         new message_info(241, "VIBRATION", 90, 32, 32, typeof( mavlink_vibration_t )),
         new message_info(242, "HOME_POSITION", 104, 52, 60, typeof( mavlink_home_position_t )),
         new message_info(243, "SET_HOME_POSITION", 85, 53, 61, typeof( mavlink_set_home_position_t )),
@@ -498,6 +499,7 @@ public partial class MAVLink
         GPS_RTCM_DATA = 233,
         HIGH_LATENCY = 234,
         HIGH_LATENCY2 = 235,
+        GEN_STATUS = 240,
         VIBRATION = 241,
         HOME_POSITION = 242,
         SET_HOME_POSITION = 243,
@@ -744,7 +746,7 @@ public partial class MAVLink
         ///<summary> Reposition the vehicle to a specific WGS84 global position. |Ground speed, less than 0 (-1) for default| Bitmask of option flags.| Reserved| Yaw heading, NaN for unchanged. For planes indicates loiter direction (0: clockwise, 1: counter clockwise)| Latitude (deg * 1E7)| Longitude (deg * 1E7)| Altitude (meters)|  </summary>
         [Description("Reposition the vehicle to a specific WGS84 global position.")]
         DO_REPOSITION=192, 
-        ///<summary> If in a GPS controlled position mode, hold the current position or continue. |0: Pause current mission or reposition command, hold current position. 1: Continue mission. A VTOL capable vehicle should enter hover mode (multicopter and VTOL planes). A plane should loiter with the default loiter radius.| Reserved| Reserved| Reserved| Reserved| Reserved| Reserved|  </summary>
+        ///<summary> If in a GPS controlled position mode, hold the current position or continue. |0: Pause current mission or reposition command, hold current position. 1: Continue mission. A VTOL capable vehicle should enter hover mode (multicopter and VTOL planes). A plane should loiter with the default loiter radius.| Reserved| Reserved| erved| Reserved| Reserved| Reserved|  </summary>
         [Description("If in a GPS controlled position mode, hold the current position or continue.")]
         DO_PAUSE_CONTINUE=193, 
         ///<summary> Set moving direction to forward or reverse. |Direction (0=Forward, 1=Reverse)| Empty| Empty| Empty| Empty| Empty| Empty|  </summary>
@@ -822,7 +824,7 @@ public partial class MAVLink
         ///<summary> NOP - This command is only used to mark the upper limit of the DO commands in the enumeration |Empty| Empty| Empty| Empty| Empty| Empty| Empty|  </summary>
         [Description("NOP - This command is only used to mark the upper limit of the DO commands in the enumeration")]
         DO_LAST=240, 
-        ///<summary> Trigger calibration. This command will be only accepted if in pre-flight mode. Except for Temperature Calibration, only one sensor should be set in a single message and all others should be zero. |1: gyro calibration, 3: gyro temperature calibration| 1: magnetometer calibration| 1: ground pressure calibration| 1: radio RC calibration, 2: RC trim calibration| 1: accelerometer calibration, 2: board level calibration, 3: accelerometer temperature calibration, 4: simple accelerometer calibration| 1: APM: compass/motor interference calibration (PX4: airspeed calibration, deprecated), 2: airspeed calibration| 1: ESC calibration, 3: barometer temperature calibration|  </summary>
+        ///<summary> Trigger calibration. This command will be only accepted if in pre-flight mode. Except for Temperature Calibration, only one sensor should be set in a single message and all others should be zero. |1: gyro calibration, 3: gyro temperature calibration| 1: magnetometer calibration| 1: ground pressure calibration| 1: radio RC calibration, 2: RC trim calibration| 1: accelerometer calibration, 2: board level calibration, 3: accelerometer temperature calibration, 4: simple accelerometer calibration| libration (PX4: airspeed calibration, deprecated), 2: airspeed calibration| 1: ESC calibration, 3: barometer temperature calibration|  </summary>
         [Description("Trigger calibration. This command will be only accepted if in pre-flight mode. Except for Temperature Calibration, only one sensor should be set in a single message and all others should be zero.")]
         PREFLIGHT_CALIBRATION=241, 
         ///<summary> Set sensor offsets. This command will be only accepted if in pre-flight mode. |Sensor to adjust the offsets for: 0: gyros, 1: accelerometer, 2: magnetometer, 3: barometer, 4: optical flow, 5: second magnetometer, 6: third magnetometer| X axis offset (or generic dimension 1), in the sensor's raw units| Y axis offset (or generic dimension 2), in the sensor's raw units| Z axis offset (or generic dimension 3), in the sensor's raw units| Generic dimension 4, in the sensor's raw units| Generic dimension 5, in the sensor's raw units| Generic dimension 6, in the sensor's raw units|  </summary>
@@ -1041,7 +1043,7 @@ public partial class MAVLink
         ///<summary> FLY button has been clicked. |Empty.| Empty.| Empty.| Empty.| Empty.| Empty.| Empty.|  </summary>
         [Description("FLY button has been clicked.")]
         SOLO_BTN_FLY_CLICK=42001, 
-        ///<summary> FLY button has been held for 1.5 seconds. |Takeoff altitude.| Empty.| Empty.| Empty.| Empty.| Empty.| Empty.|  </summary>
+        ///<summary> FLY button has been held for 1.5 seconds. |altitude.| Empty.| Empty.| Empty.| Empty.| Empty.| Empty.|  </summary>
         [Description("FLY button has been held for 1.5 seconds.")]
         SOLO_BTN_FLY_HOLD=42002, 
         ///<summary> PAUSE button has been clicked. |1 if Solo is in a shot mode, 0 otherwise.| Empty.| Empty.| Empty.| Empty.| Empty.| Empty.|  </summary>
@@ -1053,7 +1055,7 @@ public partial class MAVLink
         ///<summary> Magnetometer calibration based on fixed expected field values in milliGauss. |FieldX.| FieldY.| FieldZ.| Empty.| Empty.| Empty.| Empty.|  </summary>
         [Description("Magnetometer calibration based on fixed expected field values in milliGauss.")]
         FIXED_MAG_CAL_FIELD=42005, 
-        ///<summary> Initiate a magnetometer calibration. |uint8_t bitmask of magnetometers (0 means all).| Automatically retry on failure (0=no retry, 1=retry).| quire input, 1=autosave).| Delay (seconds).| Autoreboot (0=user reboot, 1=autoreboot).| Empty.| Empty.|  </summary>
+        ///<summary> Initiate a magnetometer calibration. |uint8_t bitmask of magnetometers (0 means all).| Automatically retry on failure (0=no retry, 1=retry).| Save without user input (0=require input, 1=autosave).| Delay (seconds).| Autoreboot (0=user reboot, 1=autoreboot).| Empty.| Empty.|  </summary>
         [Description("Initiate a magnetometer calibration.")]
         DO_START_MAG_CAL=42424, 
         ///<summary> Initiate a magnetometer calibration. |uint8_t bitmask of magnetometers (0 means all).| Empty.| Empty.| Empty.| Empty.| Empty.| Empty.|  </summary>
@@ -14549,7 +14551,62 @@ public partial class MAVLink
         [Units("")]
         [Description("Field for custom payload.")]
         public  sbyte custom2;
-    
+    };
+
+
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=24)]
+    ///<summary> Generator telemetry data </summary>
+    public struct mavlink_gen_status_t
+    {
+        public mavlink_gen_status_t(float charge_current,uint rpm,float ice_temp,float gen_temp,byte fuel_remaining,byte cooler,byte starter,byte throttle,float vsi_temp) 
+        {
+              this.charge_current = charge_current;
+              this.rpm = rpm;
+              this.ice_temp = ice_temp;
+              this.gen_temp = gen_temp;
+              this.fuel_remaining = fuel_remaining;
+              this.cooler = cooler;
+              this.starter = starter;
+              this.throttle = throttle;
+              this.vsi_temp = vsi_temp;
+            
+        }
+        /// <summary>Charge current  [A] </summary>
+        [Units("[A]")]
+        [Description("Charge current")]
+        public  float charge_current;
+            /// <summary>RPM  [rpm] </summary>
+        [Units("[rpm]")]
+        [Description("RPM")]
+        public  uint rpm;
+            /// <summary>Engine temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Engine temperature")]
+        public  float ice_temp;
+            /// <summary>Motor temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Motor temperature")]
+        public  float gen_temp;
+            /// <summary>Fuel remaining  [%] </summary>
+        [Units("[%]")]
+        [Description("Fuel remaining")]
+        public  byte fuel_remaining;
+            /// <summary>Cooler  [%] </summary>
+        [Units("[%]")]
+        [Description("Cooler")]
+        public  byte cooler;
+            /// <summary>Starter  [%] </summary>
+        [Units("[%]")]
+        [Description("Starter")]
+        public  byte starter;
+            /// <summary>Throttle  [%] </summary>
+        [Units("[%]")]
+        [Description("Throttle")]
+        public  byte throttle;
+            /// <summary>Inverter temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Inverter temperature")]
+        public  float vsi_temp;
     };
 
 

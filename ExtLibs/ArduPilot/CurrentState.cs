@@ -2870,7 +2870,7 @@ namespace MissionPlanner
                     }
                         break;
                 }
-            mavLinkMessage = MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.GEN_STATUS);
+            mavLinkMessage = parent.parent.MAV.getPacket((uint)MAVLink.MAVLINK_MSG_ID.GEN_STATUS);
             if (mavLinkMessage != null)
             {
                 var gen_status = mavLinkMessage.ToStructure<MAVLink.mavlink_gen_status_t>();

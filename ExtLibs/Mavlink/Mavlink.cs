@@ -210,6 +210,7 @@ public partial class MAVLink
         new message_info(232, "GPS_INPUT", 151, 63, 65, typeof( mavlink_gps_input_t )),
         new message_info(233, "GPS_RTCM_DATA", 35, 182, 182, typeof( mavlink_gps_rtcm_data_t )),
         new message_info(234, "HIGH_LATENCY", 150, 40, 40, typeof( mavlink_high_latency_t )),
+        new message_info(240, "GEN_STATUS", 255, 20, 24, typeof( mavlink_gen_status_t )),
         new message_info(241, "VIBRATION", 90, 32, 32, typeof( mavlink_vibration_t )),
         new message_info(242, "HOME_POSITION", 104, 52, 60, typeof( mavlink_home_position_t )),
         new message_info(243, "SET_HOME_POSITION", 85, 53, 61, typeof( mavlink_set_home_position_t )),
@@ -471,6 +472,7 @@ public partial class MAVLink
         GPS_INPUT = 232,
         GPS_RTCM_DATA = 233,
         HIGH_LATENCY = 234,
+        GEN_STATUS = 240,
         VIBRATION = 241,
         HOME_POSITION = 242,
         SET_HOME_POSITION = 243,
@@ -13770,6 +13772,63 @@ public partial class MAVLink
         [Units("")]
         [Description("current waypoint number")]
         public  byte wp_num;
+    
+    };
+
+
+    [StructLayout(LayoutKind.Sequential,Pack=1,Size=24)]
+    ///<summary> Generator telemetry data </summary>
+    public struct mavlink_gen_status_t
+    {
+        public mavlink_gen_status_t(float charge_current,uint rpm,float ice_temp,float gen_temp,byte fuel_remaining,byte cooler,byte starter,byte throttle,float vsi_temp) 
+        {
+              this.charge_current = charge_current;
+              this.rpm = rpm;
+              this.ice_temp = ice_temp;
+              this.gen_temp = gen_temp;
+              this.fuel_remaining = fuel_remaining;
+              this.cooler = cooler;
+              this.starter = starter;
+              this.throttle = throttle;
+              this.vsi_temp = vsi_temp;
+            
+        }
+        /// <summary>Charge current  [A] </summary>
+        [Units("[A]")]
+        [Description("Charge current")]
+        public  float charge_current;
+            /// <summary>RPM  [rpm] </summary>
+        [Units("[rpm]")]
+        [Description("RPM")]
+        public  uint rpm;
+            /// <summary>Engine temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Engine temperature")]
+        public  float ice_temp;
+            /// <summary>Motor temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Motor temperature")]
+        public  float gen_temp;
+            /// <summary>Fuel remaining  [%] </summary>
+        [Units("[%]")]
+        [Description("Fuel remaining")]
+        public  byte fuel_remaining;
+            /// <summary>Cooler  [%] </summary>
+        [Units("[%]")]
+        [Description("Cooler")]
+        public  byte cooler;
+            /// <summary>Starter  [%] </summary>
+        [Units("[%]")]
+        [Description("Starter")]
+        public  byte starter;
+            /// <summary>Throttle  [%] </summary>
+        [Units("[%]")]
+        [Description("Throttle")]
+        public  byte throttle;
+            /// <summary>Inverter temperature  [degC] </summary>
+        [Units("[degC]")]
+        [Description("Inverter temperature")]
+        public  float vsi_temp;
     
     };
 

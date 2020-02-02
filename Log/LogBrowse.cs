@@ -86,7 +86,7 @@ namespace MissionPlanner.Log
                     return false;
                 }
 
-                char[] splitOnThese = { ' ', ',' };
+                char[] splitOnThese = { ' ' };
                 string[] split = _commandString.Trim().Split(splitOnThese, 2, StringSplitOptions.RemoveEmptyEntries);
 
                 if (split.Length < 1)

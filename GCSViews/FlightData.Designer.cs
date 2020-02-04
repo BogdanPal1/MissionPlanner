@@ -2634,20 +2634,9 @@
         private Controls.RelayOptions relayOptions4;
         private System.Windows.Forms.ToolStripMenuItem hereLinkVideoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gStreamerStopToolStripMenuItem;
-<<<<<<< HEAD
-<<<<<<< HEAD
         private Controls.MyButton BUT_georefimage;
-=======
-=======
         private Controls.MyButton BUT_engine_ON;
         private Controls.MyButton BUT_engine_OFF;
         private Controls.MyButton BUT_land;
->>>>>>> b20a307b... ACTION_TAB: add ENG ON, ENG OFF and Land buttons
->>>>>>> d9eda6df... ACTION_TAB: add ENG ON, ENG OFF and Land buttons
-=======
-        private Controls.MyButton BUT_engine_ON;
-        private Controls.MyButton BUT_engine_OFF;
-        private Controls.MyButton BUT_land;
->>>>>>> d839a96d... ACTION_TAB: ENG ON, ENG OFF, QLand buttons moved
     }
 }

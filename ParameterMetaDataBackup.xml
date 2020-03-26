@@ -4791,6 +4791,125 @@
       <Values>0:None,1:Roll,2:Pitch,4:Yaw,8:AccelZ</Values>
       <Bitmask>0:Roll,1:Pitch,2:Yaw,3:AccelZ</Bitmask>
     </GCS_PID_MASK>
+    <GEN_CHG_THT>
+      <DisplayName>Target value for current</DisplayName>
+      <Description>This value sets desired current</Description>
+      <Range>0 10</Range>
+      <Units>A</Units>
+      <User>Standard</User>
+    </GEN_CHG_THT>
+    <GEN_CURR_MAX>
+      <DisplayName>Maximum current</DisplayName>
+      <Description>This value sets maximum current from generator</Description>
+      <Range>0 100</Range>
+      <Units>A</Units>
+      <User>Standard</User>
+    </GEN_CURR_MAX>
+    <GEN_ENABLE>
+      <DisplayName>Enable generator control</DisplayName>
+      <Description>This enables generator control</Description>
+      <Values>0:Disabled, 1:Enabled</Values>
+      <User>Advanced</User>
+    </GEN_ENABLE>
+    <GEN_IGN_MANUAL>
+      <DisplayName>Manual ignition</DisplayName>
+      <Description>Manual ignition</Description>
+      <Values>1: IGNITION ON, 2: IGNITION OFF</Values>
+      <User>Standard</User>
+    </GEN_IGN_MANUAL>
+    <GEN_PWM_CLR_MAX>
+      <DisplayName>PWM value for maximum cooler rotation</DisplayName>
+      <Description>This is the value that send to the cooler for reaching maximum rotation speed</Description>
+      <Range>1000 2000</Range>
+      <User>Standard</User>
+    </GEN_PWM_CLR_MAX>
+    <GEN_PWM_STRT_LOW>
+      <DisplayName>PWM value at start</DisplayName>
+      <Description>This is the value that send to the throttle at start</Description>
+      <Values>1100</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_STRT_LOW>
+    <GEN_PWM_THR_MAX>
+      <DisplayName>PWM value for maximum throttle angle</DisplayName>
+      <Description>This is the value that send to the throttle for reaching maximum angle</Description>
+      <Values>1000 2000</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_THR_MAX>
+    <GEN_PWM_THR_MIN>
+      <DisplayName>PWM value for minimum throttle angle</DisplayName>
+      <Description>This is the value that send to the throttle for reaching minimum angle</Description>
+      <Values>1000 2000</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_THR_MIN>
+    <GEN_RPM_GAIN>
+      <DisplayName>I</DisplayName>
+      <Description>This is the gain from integral of angle to throttle</Description>
+      <Range>0 0.1</Range>
+      <User>Standard</User>
+    </GEN_RPM_GAIN>
+    <GEN_RPM_MAX>
+      <DisplayName>Maximal RPM of generator</DisplayName>
+      <Description>This value sets maximal RPM for generator</Description>
+      <Range>0 2000</Range>
+      <User>Standard</User>
+    </GEN_RPM_MAX>
+    <GEN_STALL_TIME>
+      <DisplayName>Generator timeout</DisplayName>
+      <Description>The time after which generator turns off if it doesn't generate any current</Description>
+      <Range>0 20</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_STALL_TIME>
+    <GEN_START_CHAN>
+      <DisplayName>Input channel for generator start</DisplayName>
+      <Description>This is an RC input channel for requesting engine start. Engine will try to start when channel is at or above 1700. Engine will stop when channel is at or below 1300. Between 1301 and 1699 the engine will not change state unless a MAVLink command or mission item commands a state change, or the vehicle is disamed.</Description>
+      <Values>0:None,1:Chan1,2:Chan2,3:Chan3,4:Chan4,5:Chan5,6:Chan6,7:Chan7,8:Chan8,9:Chan9,10:Chan10,11:Chan11,12:Chan12,13:Chan13,14:Chan14,15:Chan15,16:Chan16</Values>
+      <User>Standard</User>
+    </GEN_START_CHAN>
+    <GEN_START_DELAY>
+      <DisplayName>Time to wait between starts</DisplayName>
+      <Description>Delay between start attempts</Description>
+      <Range>1 10</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_START_DELAY>
+    <GEN_STARTER_TIME>
+      <DisplayName>Time to run starter</DisplayName>
+      <Description>This is the number of seconds to run the starter when trying to start the engine</Description>
+      <Range>0.1 5</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_STARTER_TIME>
+    <GEN_TEMP_CHK>
+      <DisplayName>Choke temperature</DisplayName>
+      <Description>If ICEngine temperature lower than that value throttle will close</Description>
+      <Range>0 40</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_CHK>
+    <GEN_TEMP_MAX>
+      <DisplayName>ICEngine maximum temperature</DisplayName>
+      <Description>This value set maximum temperature of ICEngine</Description>
+      <Range>0 150</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_MAX>
+    <GEN_TEMP_MIN>
+      <DisplayName>ICEngine minimum temprature</DisplayName>
+      <Description>This value set minimum temperature of ICEngine</Description>
+      <Range>0 150</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_MIN>
+    <GEN_THR_GAIN>
+      <DisplayName>I</DisplayName>
+      <Description>This is the gain from integral of angle to throttle</Description>
+      <Range>0 1.0</Range>
+      <User>Standard</User>
+    </GEN_THR_GAIN>
     <GND_ABS_PRESS>
       <DisplayName>Absolute Pressure</DisplayName>
       <Description>calibrated ground pressure in Pascals</Description>
@@ -18290,6 +18409,125 @@
       <User>Advanced</User>
       <Bitmask>0:Roll,1:Pitch,2:Yaw,3:Steering,4:Landing</Bitmask>
     </GCS_PID_MASK>
+    <GEN_CHG_THT>
+      <DisplayName>Target value for current</DisplayName>
+      <Description>This value sets desired current</Description>
+      <Range>0 10</Range>
+      <Units>A</Units>
+      <User>Standard</User>
+    </GEN_CHG_THT>
+    <GEN_CURR_MAX>
+      <DisplayName>Maximum current</DisplayName>
+      <Description>This value sets maximum current from generator</Description>
+      <Range>0 100</Range>
+      <Units>A</Units>
+      <User>Standard</User>
+    </GEN_CURR_MAX>
+    <GEN_ENABLE>
+      <DisplayName>Enable generator control</DisplayName>
+      <Description>This enables generator control</Description>
+      <Values>0:Disabled, 1:Enabled</Values>
+      <User>Advanced</User>
+    </GEN_ENABLE>
+    <GEN_IGN_MANUAL>
+      <DisplayName>Manual ignition</DisplayName>
+      <Description>Manual ignition</Description>
+      <Values>1: IGNITION ON, 2: IGNITION OFF</Values>
+      <User>Standard</User>
+    </GEN_IGN_MANUAL>
+    <GEN_PWM_CLR_MAX>
+      <DisplayName>PWM value for maximum cooler rotation</DisplayName>
+      <Description>This is the value that send to the cooler for reaching maximum rotation speed</Description>
+      <Range>1000 2000</Range>
+      <User>Standard</User>
+    </GEN_PWM_CLR_MAX>
+    <GEN_PWM_STRT_LOW>
+      <DisplayName>PWM value at start</DisplayName>
+      <Description>This is the value that send to the throttle at start</Description>
+      <Values>1100</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_STRT_LOW>
+    <GEN_PWM_THR_MAX>
+      <DisplayName>PWM value for maximum throttle angle</DisplayName>
+      <Description>This is the value that send to the throttle for reaching maximum angle</Description>
+      <Values>1000 2000</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_THR_MAX>
+    <GEN_PWM_THR_MIN>
+      <DisplayName>PWM value for minimum throttle angle</DisplayName>
+      <Description>This is the value that send to the throttle for reaching minimum angle</Description>
+      <Values>1000 2000</Values>
+      <Units>ms</Units>
+      <User>Standard</User>
+    </GEN_PWM_THR_MIN>
+    <GEN_RPM_GAIN>
+      <DisplayName>I</DisplayName>
+      <Description>This is the gain from integral of angle to throttle</Description>
+      <Range>0 0.1</Range>
+      <User>Standard</User>
+    </GEN_RPM_GAIN>
+    <GEN_RPM_MAX>
+      <DisplayName>Maximal RPM of generator</DisplayName>
+      <Description>This value sets maximal RPM for generator</Description>
+      <Range>0 2000</Range>
+      <User>Standard</User>
+    </GEN_RPM_MAX>
+    <GEN_STALL_TIME>
+      <DisplayName>Generator timeout</DisplayName>
+      <Description>The time after which generator turns off if it doesn't generate any current</Description>
+      <Range>0 20</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_STALL_TIME>
+    <GEN_START_CHAN>
+      <DisplayName>Input channel for generator start</DisplayName>
+      <Description>This is an RC input channel for requesting engine start. Engine will try to start when channel is at or above 1700. Engine will stop when channel is at or below 1300. Between 1301 and 1699 the engine will not change state unless a MAVLink command or mission item commands a state change, or the vehicle is disamed.</Description>
+      <Values>0:None,1:Chan1,2:Chan2,3:Chan3,4:Chan4,5:Chan5,6:Chan6,7:Chan7,8:Chan8,9:Chan9,10:Chan10,11:Chan11,12:Chan12,13:Chan13,14:Chan14,15:Chan15,16:Chan16</Values>
+      <User>Standard</User>
+    </GEN_START_CHAN>
+    <GEN_START_DELAY>
+      <DisplayName>Time to wait between starts</DisplayName>
+      <Description>Delay between start attempts</Description>
+      <Range>1 10</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_START_DELAY>
+    <GEN_STARTER_TIME>
+      <DisplayName>Time to run starter</DisplayName>
+      <Description>This is the number of seconds to run the starter when trying to start the engine</Description>
+      <Range>0.1 5</Range>
+      <Units>s</Units>
+      <User>Standard</User>
+    </GEN_STARTER_TIME>
+    <GEN_TEMP_CHK>
+      <DisplayName>Choke temperature</DisplayName>
+      <Description>If ICEngine temperature lower than that value throttle will close</Description>
+      <Range>0 40</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_CHK>
+    <GEN_TEMP_MAX>
+      <DisplayName>ICEngine maximum temperature</DisplayName>
+      <Description>This value set maximum temperature of ICEngine</Description>
+      <Range>0 150</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_MAX>
+    <GEN_TEMP_MIN>
+      <DisplayName>ICEngine minimum temprature</DisplayName>
+      <Description>This value set minimum temperature of ICEngine</Description>
+      <Range>0 150</Range>
+      <Units>degC</Units>
+      <User>Standard</User>
+    </GEN_TEMP_MIN>
+    <GEN_THR_GAIN>
+      <DisplayName>I</DisplayName>
+      <Description>This is the gain from integral of angle to throttle</Description>
+      <Range>0 1.0</Range>
+      <User>Standard</User>
+    </GEN_THR_GAIN>
     <GLIDE_SLOPE_MIN>
       <DisplayName>Glide slope minimum</DisplayName>
       <Description>This controls the minimum altitude change for a waypoint before a glide slope will be used instead of an immediate altitude change. The default value is 15 meters, which helps to smooth out waypoint missions where small altitude changes happen near waypoints. If you don't want glide slopes to be used in missions then you can set this to zero, which will disable glide slope calculations. Otherwise you can set it to a minimum number of meters of altitude error to the destination waypoint before a glide slope will be used to change altitude.</Description>

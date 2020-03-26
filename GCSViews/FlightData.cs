@@ -4990,5 +4990,19 @@ namespace MissionPlanner.GCSViews
                 CustomMessageBox.Show(Strings.InvalidField, Strings.ERROR);
             }
         }
+        private void BUT_engine_ON_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_ENGINE_CONTROL, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        }
+
+        private void BUT_engine_OFF_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.doCommand(MAVLink.MAV_CMD.DO_ENGINE_CONTROL, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        }
+
+        private void BUT_land_Click(object sender, EventArgs e)
+        {
+            MainV2.comPort.setMode("QLAND");
+        }
     }
 }

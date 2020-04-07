@@ -4671,6 +4671,19 @@
       <field type="uint8_t" name="wp_num">current waypoint number</field>
       <field type="uint16_t" name="wp_distance" units="m">distance to target</field>
     </message>
+    <message id="240" name="GEN_STATUS">
+      <description>Generator telemetry data</description>
+      <field type="float" name="charge_current" units="A">Charge current</field>
+      <field type="uint32_t" name="rpm" units="rpm">RPM</field>
+      <field type="float" name="ice_temp" units="degC">Engine temperature</field>
+      <field type="float" name="gen_temp" units="degC">Motor temperature</field>
+      <field type="uint8_t" name="fuel_remaining" units="%">Fuel remaining</field>
+      <field type="uint8_t" name="cooler" units="%">Cooler</field>
+      <field type="uint8_t" name="starter" units="%">Starter</field>
+      <field type="uint8_t" name="throttle" units="%">Throttle</field>
+      <extensions/>
+      <field type="float" name="vsi_temp" units="degC">Inverter temperature</field>      
+    </message>
     <message id="241" name="VIBRATION">
       <description>Vibration levels and accelerometer clipping</description>
       <field type="uint64_t" name="time_usec" units="us">Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format (since 1.1.1970 or since system boot) by checking for the magnitude the number.</field>

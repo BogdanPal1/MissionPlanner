@@ -5128,4 +5128,85 @@
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.MyUserControl, MissionPlanner.Controls, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
+<data name="BUT_land.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BUT_land.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 79</value>
+  </data>
+  <data name="BUT_land.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 31</value>
+  </data>
+  <data name="BUT_land.TabIndex" type="System.Int32, mscorlib">
+    <value>90</value>
+  </data>
+  <data name="BUT_land.Text" xml:space="preserve">
+    <value>QLand</value>
+  </data>
+  <data name="&gt;&gt;BUT_land.Name" xml:space="preserve">
+    <value>BUT_land</value>
+  </data>
+  <data name="&gt;&gt;BUT_land.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BUT_land.Parent" xml:space="preserve">
+    <value>tabActions</value>
+  </data>
+  <data name="&gt;&gt;BUT_land.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="BUT_engine_ON.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BUT_engine_ON.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 7</value>
+  </data>
+  <data name="BUT_engine_ON.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 31</value>
+  </data>
+  <data name="BUT_engine_ON.TabIndex" type="System.Int32, mscorlib">
+    <value>89</value>
+  </data>
+  <data name="BUT_engine_ON.Text" xml:space="preserve">
+    <value>ENG ON</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_ON.Name" xml:space="preserve">
+    <value>BUT_engine_ON</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_ON.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_ON.Parent" xml:space="preserve">
+    <value>tabActions</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_ON.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="BUT_engine_OFF.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="BUT_engine_OFF.Location" type="System.Drawing.Point, System.Drawing">
+    <value>410, 43</value>
+  </data>
+  <data name="BUT_engine_OFF.Size" type="System.Drawing.Size, System.Drawing">
+    <value>55, 31</value>
+  </data>
+  <data name="BUT_engine_OFF.TabIndex" type="System.Int32, mscorlib">
+    <value>88</value>
+  </data>
+  <data name="BUT_engine_OFF.Text" xml:space="preserve">
+    <value>ENG OFF</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_OFF.Name" xml:space="preserve">
+    <value>BUT_engine_OFF</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_OFF.Type" xml:space="preserve">
+    <value>MissionPlanner.Controls.MyButton, MissionPlanner.Controls, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_OFF.Parent" xml:space="preserve">
+    <value>tabActions</value>
+  </data>
+  <data name="&gt;&gt;BUT_engine_OFF.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
 </root>

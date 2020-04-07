@@ -41,6 +41,9 @@
             this.quickView2 = new MissionPlanner.Controls.QuickView();
             this.quickView1 = new MissionPlanner.Controls.QuickView();
             this.tabActions = new System.Windows.Forms.TabPage();
+            this.BUT_engine_ON = new MissionPlanner.Controls.MyButton();
+            this.BUT_engine_OFF = new MissionPlanner.Controls.MyButton();
+            this.BUT_land = new MissionPlanner.Controls.MyButton();
             this.modifyandSetLoiterRad = new MissionPlanner.Controls.ModifyandSet();
             this.BUT_abortland = new MissionPlanner.Controls.MyButton();
             this.BUT_resumemis = new MissionPlanner.Controls.MyButton();
@@ -629,6 +632,9 @@
             this.tabActions.Controls.Add(this.BUT_mountmode);
             this.tabActions.Controls.Add(this.BUT_ARM);
             this.tabActions.Controls.Add(this.BUT_joystick);
+            this.tabActions.Controls.Add(this.BUT_land);
+            this.tabActions.Controls.Add(this.BUT_engine_ON);
+            this.tabActions.Controls.Add(this.BUT_engine_OFF);
             this.tabActions.Controls.Add(this.BUT_quickmanual);
             this.tabActions.Controls.Add(this.BUT_quickrtl);
             this.tabActions.Controls.Add(this.BUT_quickauto);
@@ -731,6 +737,35 @@
             this.BUT_joystick.UseVisualStyleBackColor = true;
             this.BUT_joystick.Click += new System.EventHandler(this.BUT_joystick_Click);
             // 
+            // BUT_engine_ON
+            // 
+            this.BUT_engine_ON.ColorMouseDown = System.Drawing.Color.Empty;
+            this.BUT_engine_ON.ColorMouseOver = System.Drawing.Color.Empty;
+            this.BUT_engine_ON.ColorNotEnabled = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.BUT_engine_ON, "BUT_engine_ON");
+            this.BUT_engine_ON.Name = "BUT_engine_ON";
+            this.BUT_engine_ON.UseVisualStyleBackColor = true;
+            this.BUT_engine_ON.Click += new System.EventHandler(this.BUT_engine_ON_Click);
+            // 
+            // BUT_engine_OFF
+            // 
+            this.BUT_engine_OFF.ColorMouseDown = System.Drawing.Color.Empty;
+            this.BUT_engine_OFF.ColorMouseOver = System.Drawing.Color.Empty;
+            this.BUT_engine_OFF.ColorNotEnabled = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.BUT_engine_OFF, "BUT_engine_OFF");
+            this.BUT_engine_OFF.Name = "BUT_engine_OFF";
+            this.BUT_engine_OFF.UseVisualStyleBackColor = true;
+            this.BUT_engine_OFF.Click += new System.EventHandler(this.BUT_engine_OFF_Click);
+            // 
+            // BUT_land
+            // 
+            this.BUT_land.ColorMouseDown = System.Drawing.Color.Empty;
+            this.BUT_land.ColorMouseOver = System.Drawing.Color.Empty;
+            this.BUT_land.ColorNotEnabled = System.Drawing.Color.Empty;
+            resources.ApplyResources(this.BUT_land, "BUT_land");
+            this.BUT_land.Name = "BUT_land";
+            this.BUT_land.UseVisualStyleBackColor = true;
+            this.BUT_land.Click += new System.EventHandler(this.BUT_land_Click);
             // BUT_quickmanual
             // 
             this.BUT_quickmanual.ColorMouseDown = System.Drawing.Color.Empty;
@@ -2626,6 +2661,9 @@
         private Controls.MyButton BUT_georefimage;
         private Controls.QuickView quickView6;
         private Controls.QuickView quickView5;
+        private Controls.MyButton BUT_engine_ON;
+        private Controls.MyButton BUT_engine_OFF;
+        private Controls.MyButton BUT_land;
         private System.Windows.Forms.ToolStripMenuItem poiatcoordsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem flyToCoordsToolStripMenuItem;
     }

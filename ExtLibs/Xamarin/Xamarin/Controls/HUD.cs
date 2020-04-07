@@ -60,6 +60,7 @@ namespace MissionPlanner.Controls
 
         private readonly Pen _redPen = new Pen(Color.Red, 2);
         private readonly SolidBrush _whiteBrush = new SolidBrush(Color.White);
+        private readonly SolidBrush _redBrush = new SolidBrush(Color.Red);
         /// <summary>
         /// pth for drawstring
         /// </summary>
@@ -2038,6 +2039,26 @@ namespace MissionPlanner.Controls
                             drawstring(
                                 item.Header + hrs.ToString("00") + ":" + mins.ToString("00") + ":" +
                                 secs.ToString("00"), font, fontsize + 2, _whiteBrush, this.Width / 8, height);
+                        }
+                        else if (item.Item.Name == "charge_current" && item.GetValue <= 1.0)
+                        {
+                            drawstring(item.Header + item.GetValue.ToString("0.0"), font, fontsize + 2,
+                                _redBrush, this.Width / 8, height);
+                        }
+                        else if (item.Item.Name == "gen_rpm" && item.GetValue == 0.0)
+                        {
+                            drawstring(item.Header + item.GetValue.ToString("0.0"), font, fontsize + 2,
+                                _redBrush, this.Width / 8, height);
+                        }
+                        else if (item.Item.Name == "gen_temp" && Double.IsNaN(item.GetValue))
+                        {
+                            drawstring(item.Header + "NaN", font, fontsize + 2,
+                                _redBrush, this.Width / 8, height);
+                        }
+                        else if (item.Item.Name == "ice_temp" && Double.IsNaN(item.GetValue))
+                        {
+                            drawstring(item.Header + "NaN", font, fontsize + 2,
+                                _redBrush, this.Width / 8, height);
                         }
                         else
                         {

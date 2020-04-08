@@ -24,9 +24,10 @@ namespace MissionPlanner.Maps
         float radius = -1;
         float target = -1;
         int which = 0;
+        ushort gps_yaw = 0;
 
         public GMapMarkerPlane(int which, PointLatLng p, float heading, float cog, float nav_bearing, float target,
-            float radius)
+            float radius, ushort gps_yaw)
             : base(p)
         {
             this.heading = heading;
@@ -35,6 +36,7 @@ namespace MissionPlanner.Maps
             this.nav_bearing = nav_bearing;
             this.radius = radius;
             this.which = which;
+            this.gps_yaw = gps_yaw;
             Size = icon.Size;
         }
         public override void OnRender(IGraphics g)
@@ -55,7 +57,6 @@ namespace MissionPlanner.Maps
             catch
             {
             }
-
             if (DisplayNavBearing)
                 g.DrawLine(new Pen(Color.Green, 2), 0.0f, 0.0f,
                     (float) Math.Cos((nav_bearing - 90) * MathHelper.deg2rad) * length,
@@ -68,6 +69,10 @@ namespace MissionPlanner.Maps
                 g.DrawLine(new Pen(Color.Orange, 2), 0.0f, 0.0f,
                     (float) Math.Cos((target - 90) * MathHelper.deg2rad) * length,
                     (float) Math.Sin((target - 90) * MathHelper.deg2rad) * length);
+            if (DisplayGPSYaw)
+                g.DrawLine(new Pen(Color.Blue, 2), 0.0f, 0.0f,
+                    (float)Math.Cos((gps_yaw/100 - 90) * MathHelper.deg2rad) * length,
+                    (float)Math.Sin((gps_yaw/100 - 90) * MathHelper.deg2rad) * length);
             // anti NaN
             try
             {

@@ -411,6 +411,10 @@ namespace MissionPlanner
         [GroupText("Position")]
         public float groundcourse2 { get; set; }
 
+        [DisplayText("GPSYaw (deg)")]
+        [GroupText("Position")]
+        public ushort yaw2 { get; set; }
+
         [DisplayText("Sat Count Blend")]
         [GroupText("Position")]
         public float satcountB => satcount + satcount2;
@@ -795,7 +799,7 @@ namespace MissionPlanner
 
         [GroupText("NAV")]
         [DisplayText("Bearing Target (deg)")]
-        public float nav_bearing { get; set; }
+        public float  nav_bearing { get; set; }
 
         [GroupText("NAV")]
         [DisplayText("Bearing Target (deg)")]
@@ -2528,6 +2532,7 @@ namespace MissionPlanner
 
                         groundspeed2 = gps.vel * 1.0e-2f;
                         groundcourse2 = gps.cog * 1.0e-2f;
+                        yaw2 = gps.yaw;
                     }
 
                         break;

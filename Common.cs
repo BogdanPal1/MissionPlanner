@@ -28,7 +28,7 @@ namespace MissionPlanner
 
                 return (new GMapMarkerPlane(which, portlocation, MAV.cs.yaw,
                     MAV.cs.groundcourse, MAV.cs.nav_bearing, MAV.cs.target_bearing,
-                    MAV.cs.radius * CurrentState.multiplierdist)
+                    MAV.cs.radius * CurrentState.multiplierdist, MAV.cs.yaw2)
                 {
                     ToolTipText = MAV.cs.alt.ToString("0") + CurrentState.AltUnit + " | " + (int)MAV.cs.airspeed +
                                   CurrentState.SpeedUnit + " | id:" + (int)MAV.sysid + " | Sats:" + (int)MAV.cs.satcount + " | HDOP:" + (float)MAV.cs.gpshdop + " | Volts: " + (float)MAV.cs.battery_voltage, 
@@ -62,7 +62,7 @@ namespace MissionPlanner
             else if (MAV.cs.firmware == Firmwares.ArduTracker)
             {
                 return (new GMapMarkerAntennaTracker(portlocation, MAV.cs.yaw,
-                    MAV.cs.target_bearing));
+                    MAV.cs.target_bearing, MAV.cs.yaw2));
             }
             else if (MAV.cs.firmware == Firmwares.ArduCopter2 || MAV.aptype == MAVLink.MAV_TYPE.QUADROTOR)
             {

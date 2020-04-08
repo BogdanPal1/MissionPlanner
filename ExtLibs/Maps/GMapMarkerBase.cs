@@ -14,6 +14,7 @@ namespace MissionPlanner.Maps
         public static bool DisplayNavBearing = true;
         public static bool DisplayRadius = true;
         public static bool DisplayTarget = true;
+        public static bool DisplayGPSYaw = true;
         public static int length = 500;
 
         public GMapMarkerBase(PointLatLng pos):base(pos)

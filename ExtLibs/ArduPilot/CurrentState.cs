@@ -2994,6 +2994,7 @@ namespace MissionPlanner
 
                     }
                         break;
+
                     case (uint) MAVLink.MAVLINK_MSG_ID.GEN_STATUS:
 
                     {

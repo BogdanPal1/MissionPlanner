@@ -13911,7 +13911,7 @@ public partial class MAVLink
     ///<summary> Generator telemetry data </summary>
     public struct mavlink_gen_status_t
     {
-        public mavlink_gen_status_t(float charge_current,uint rpm,float ice_temp,float gen_temp,byte fuel_remaining,byte cooler,byte starter,byte throttle,float vsi_temp) 
+        public mavlink_gen_status_t(float charge_current,uint rpm,float ice_temp,float gen_temp,byte fuel_remaining,byte cooler,byte starter,byte throttle,float vsi_temp, uint rpm_alt, float ice_temp_alt) 
         {
               this.charge_current = charge_current;
               this.rpm = rpm;
@@ -13922,7 +13922,8 @@ public partial class MAVLink
               this.starter = starter;
               this.throttle = throttle;
               this.vsi_temp = vsi_temp;
-            
+              this.rpm_alt = rpm_alt;
+              this.ice_temp_alt = ice_temp_alt;
         }
         /// <summary>Charge current  [A] </summary>
         [Units("[A]")]
@@ -13960,7 +13961,18 @@ public partial class MAVLink
         [Units("[degC]")]
         [Description("Inverter temperature")]
         public  float vsi_temp;
-    
+            /// <summary>
+            /// RPM alternate [rpm]
+            /// </summary>
+        [Units("[rpm]")]
+        [Description("RPM alternate")]
+        public uint rpm_alt;
+            /// <summary>
+            /// Engine temperature alternate [degC]
+            /// </summary>
+        [Units("[degC]")]
+        [Description("Engine temperature alternate")]
+        public float ice_temp_alt;
     };
 
 

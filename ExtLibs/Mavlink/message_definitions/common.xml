@@ -4682,7 +4682,9 @@
       <field type="uint8_t" name="starter" units="%">Starter</field>
       <field type="uint8_t" name="throttle" units="%">Throttle</field>
       <extensions/>
-      <field type="float" name="vsi_temp" units="degC">Inverter temperature</field>      
+      <field type="float" name="vsi_temp" units="degC">Inverter temperature</field>  
+      <field type="uint32_t" name="rpm_alt" units="rpm">RPM alternate</field>
+      <field type="float" name="ice_temp_alt" units="degC">Engine temperature alternate</field>
     </message>
     <message id="241" name="VIBRATION">
       <description>Vibration levels and accelerometer clipping</description>

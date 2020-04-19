@@ -1188,12 +1188,12 @@ namespace ZedGraph
             {
                 // Hide the previous rectangle by calling the
                 // DrawReversibleFrame method with the same parameters.
-                Rectangle rect = this.CalcScreenRect(this._dragStartPt, this._dragEndPt);
+                Rectangle rect = this.CalcZoomRect(this._dragStartPt, this._dragEndPt);
                 ReversibleFrame.Draw(g, this.BackColor, rect);
 
                 // Bound the zoom to the ChartRect
                 _dragEndPt = Point.Round(this.BoundPointToRect(mousePt, this._dragPane.Chart._rect));
-                rect = this.CalcScreenRect(this._dragStartPt, this._dragEndPt);
+                rect = this.CalcZoomRect(this._dragStartPt, this._dragEndPt);
 
                 // Draw the new rectangle by calling DrawReversibleFrame again.
                 ReversibleFrame.Draw(g, this.BackColor, rect);
@@ -1346,28 +1346,30 @@ namespace ZedGraph
 			return newPt;
 		}
 
-		private Rectangle CalcScreenRect( Point mousePt1, Point mousePt2 )
+		/// <summary>
+		/// Caclulates the <see cref="Rectangle"/> between two points for zooming.
+		/// </summary>
+		/// <param name="point1">The first point.</param>
+		/// <param name="point2">The second point.</param>
+		/// <returns>The rectangle between the two points.</returns>
+		private Rectangle CalcZoomRect(Point point1, Point point2)
 		{
-			Point screenPt = PointToScreen( mousePt1 );
-			Size size = new Size( mousePt2.X - mousePt1.X, mousePt2.Y - mousePt1.Y );
-			Rectangle rect = new Rectangle( screenPt, size );
+			Size size = new Size(point2.X - point1.X, point2.Y - point1.Y);
+			Rectangle rect = new Rectangle(point1, size);
 
-			if ( _isZooming )
+			Rectangle chartRect = Rectangle.Round(this._dragPane.Chart.Rect);
+
+			Point chartPt = chartRect.Location;
+
+			if (!this.IsEnableVZoom)
 			{
-				Rectangle chartRect = Rectangle.Round( _dragPane.Chart._rect );
-
-				Point chartPt = PointToScreen( chartRect.Location );
-
-				if ( !_isEnableVZoom )
-				{
-					rect.Y = chartPt.Y;
-					rect.Height = chartRect.Height + 1;
-				}
-				else if ( !_isEnableHZoom )
-				{
-					rect.X = chartPt.X;
-					rect.Width = chartRect.Width + 1;
-				}
+				rect.Y = chartPt.Y;
+				rect.Height = chartRect.Height + 1;
+			}
+			else if (!this.IsEnableHZoom)
+			{
+				rect.X = chartPt.X;
+				rect.Width = chartRect.Width + 1;
 			}
 
 			return rect;

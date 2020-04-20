@@ -42,8 +42,11 @@ namespace MissionPlanner.Maps
                     (float) Math.Sin((target - 90) * MathHelper.deg2rad) * length);
 
                 // gps_yaw
-                g.DrawLine(new Pen(Color.Blue, 2), 0.0f, 0.0f, (float)Math.Cos((gps_yaw/100 - 90) * MathHelper.deg2rad) * length,
-                    (float)Math.Sin((gps_yaw/100 - 90) * MathHelper.deg2rad) * length);
+                if ((gps_yaw / 100) != 0)
+                {
+                    g.DrawLine(new Pen(Color.Blue, 2), 0.0f, 0.0f, (float)Math.Cos((gps_yaw / 100 - 90) * MathHelper.deg2rad) * length,
+                    (float)Math.Sin((gps_yaw / 100 - 90) * MathHelper.deg2rad) * length);
+                }
             }
             catch
             {

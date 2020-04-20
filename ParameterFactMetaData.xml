@@ -4751,6 +4751,125 @@ Maps the change of airspeed error to the acceleration setpoint</short_desc>
       <max>10.0</max>
     </parameter>
   </group>
+  <group name="GEN_STATUS">
+    <parameter default="0" name="GEN_CHG_TGT" type="FLOAT">
+      <short_desc> This value sets desired current</short_desc>
+      <min>0</min>
+      <max>10</max>
+      <unit>A</unit>
+    </parameter>
+    <parameter default="0" name="GEN_CURR_MAX" type="FLOAT">
+      <short_desc>This value sets maximum current from generator</short_desc>
+      <min>0</min>
+      <max>100</max>
+      <unit>A</unit>
+    </parameter>
+    <parameter default="0" name="GEN_ENABLE" type="INT32">
+      <short_desc>This enables generator control</short_desc>
+      <min>0</min>
+      <max>1</max>
+    </parameter>
+    <parameter default="1" name="GEN_IGN_MANUAL" type="INT32">
+      <short_desc>Enables ignition</short_desc>
+      <min>0</min>
+      <max>1</max>
+    </parameter>
+    <parameter default="1000" name="GEN_PWM_CLR_MAX" type="INT32">
+      <short_desc>This is the value that send to the cooler for reaching maximum rotation speed</short_desc>
+      <min>1000</min>
+      <max>2000</max>
+    </parameter>
+    <parameter default="1100" name="GEN_PWM_STRT_LOW" type="INT32">
+      <short_desc>This is the value that send to the throttle at start</short_desc>
+      <min>1100</min>
+      <max>1100</max>
+    </parameter>
+    <parameter default="1000" name="GEN_PWM_THR_MAX" type="INT32">
+      <short_desc>This is the value that send to the throttle for reaching maximum angle</short_desc>
+      <min>1000</min>
+      <max>2000</max>
+      <unit>ms</unit>
+    </parameter>
+    <parameter default="1000" name="GEN_PWM_THR_MIN" type="INT32">
+      <short_desc>This is the value that send to the throttle for reaching minimum angle</short_desc>
+      <min>1000</min>
+      <max>2000</max>
+      <unit>ms</unit>
+    </parameter>
+    <parameter default="0" name="GEN_RPM_GAIN" type="FLOAT">
+      <short_desc>This is the gain from integral of angle to throttle</short_desc>
+      <min>0</min>
+      <max>0.1</max>
+    </parameter>
+    <parameter default="0" name="GEN_RPM_MAX" type="INT32">
+      <short_desc>This value sets maximal RPM for generator</short_desc>
+      <min>0</min>
+      <max>2000</max>
+    </parameter>
+    <parameter default="0" name="GEN_STALL_TIME" type="INT32">
+      <short_desc>The time after which generator turns off if it doesn't generate any current</short_desc>
+      <min>0</min>
+      <max>20</max>
+      <unit>s</unit>
+    </parameter>
+    <parameter default="0" name="GEN_START_CHAN" type ="INT32">
+      <short_desc>This is an RC input channel for requesting engine start. Engine will try to start when channel is at or above 1700. Engine will stop when channel is at or below 1300. Between 1301 and 1699 the engine will not change state unless a MAVLink command or mission item commands a state change, or the vehicle is disamed.</short_desc>
+      <values>
+        <value code="0">None</value>
+        <value code="1">Chan1</value>
+        <value code="2">Chan2</value>
+        <value code="3">Chan3</value>
+        <value code="4">Chan4</value>
+        <value code="5">Chan5</value>
+        <value code="6">Chan6</value>
+        <value code="7">Chan7</value>
+        <value code="8">Chan8</value>
+        <value code="9">Chan9</value>
+        <value code="10">Chan10</value>
+        <value code="11">Chan11</value>
+        <value code="12">Chan12</value>
+        <value code="13">Chan13</value>
+        <value code="14">Chan14</value>
+        <value code="15">Chan15</value>
+        <value code="16">Chan16</value>
+      </values>
+    </parameter>
+    <parameter default="1" name="GEN_START_DELAY" type="INT32">
+      <short_desc>Delay between start attempts</short_desc>
+      <min>1</min>
+      <max>10</max>
+      <unit>s</unit>
+    </parameter>
+    <parameter default="0.1" name="GEN_STARTER_TIME" type="FLOAT">
+      <short_desc>This is the number of seconds to run the starter when trying to start the engine</short_desc>
+      <min>0.1</min>
+      <max>5</max>
+      <unit>s</unit>
+  </parameter>
+  <parameter default="0" name="GEN_TEMP_CHK" type="FLOAT">
+    <short_desc>If ICEngine temperature lower than that value throttle will close</short_desc>
+    <min>0</min>
+    <max>40</max>
+    <unit>degC</unit>
+  </parameter>
+  <parameter default="0" name="GEN_TEMP_MAX" type="FLOAT">
+    <short_desc>This value set maximum temperature of ICEngine</short_desc>
+    <min>0</min>
+    <max>150</max>
+    <unit>degC</unit>
+  </parameter>
+  <parameter default="0" name="GEN_TEMP_MIN" type="FLOAT">
+    <short_desc>This value set minimum temperature of ICEngine</short_desc>
+    <min>0</min>
+    <max>150</max>
+    <unit>degC</unit>
+  </parameter>
+  <parameter default="0" name="GEN_THR_GAIN" type="FLOAT">
+    <short_desc>This is the gain from integral of angle to throttle</short_desc>
+    <min>0</min>
+    <max>1.0</max>
+  </parameter>
+  </group> 
   <group name="Miscellaneous">
     <parameter default="15" name="LED_RGB_MAXBRT" type="INT32">
       <short_desc>RGB Led brightness limit</short_desc>

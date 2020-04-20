@@ -24,12 +24,17 @@ namespace MissionPlanner.Utilities
 
         public static void Reload()
         {
-            string paramMetaDataXMLFileName = String.Format("{0}{1}", Settings.GetUserDataDirectory(), "ParameterFactMetaData.xml");
+            //string paramMetaDataXMLFileName = String.Format("{0}{1}", Settings.GetUserDataDirectory(), "ParameterFactMetaData.xml");
 
             string paramMetaDataXMLFileNameBackup = String.Format("{0}{1}{2}", Settings.GetRunningDirectory(),
-                Path.DirectorySeparatorChar, "ParameterFactMetaData.xml");
+                Path.DirectorySeparatorChar, "ParameterMetaDataBackup.xml");
 
-            try
+            if (File.Exists(paramMetaDataXMLFileNameBackup))
+            {
+                _parameterMetaDataXML = XDocument.Load(paramMetaDataXMLFileNameBackup);
+                Console.WriteLine("Using backup param data");
+            }
+            /*try
             {
                 if (File.Exists(paramMetaDataXMLFileName))
                     _parameterMetaDataXML = XDocument.Load(paramMetaDataXMLFileName);
@@ -43,7 +48,7 @@ namespace MissionPlanner.Utilities
             }
             catch
             {
-            }
+            }*/
         }
 
         static string ConvertMetaKey(string input)

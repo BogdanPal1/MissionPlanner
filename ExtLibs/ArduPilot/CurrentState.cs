@@ -276,6 +276,12 @@ namespace MissionPlanner
         [DisplayText("Throttle")]
         [GroupText("Generator")]
         public uint throttle_pct { get; set; }
+        [DisplayText("RPM alternate")]
+        [GroupText("Generator")]
+        public uint gen_rpm_alt { get; set; }
+        [DisplayText("ICE temperature alternate")]
+        [GroupText("Generator")]
+        public float ice_temp_alt { get; set; }
 
         [GroupText("Position")]
         [DisplayText("GroundCourse (deg)")]
@@ -3009,6 +3015,8 @@ namespace MissionPlanner
                         cooler_pct = gen_status.cooler;
                         starter_pct = gen_status.starter;
                         throttle_pct = gen_status.throttle;
+                        gen_rpm_alt = gen_status.rpm_alt;
+                        ice_temp_alt = gen_status.ice_temp_alt;
                     }
                         break;
                 }

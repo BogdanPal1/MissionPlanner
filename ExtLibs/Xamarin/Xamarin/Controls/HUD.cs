@@ -2060,6 +2060,11 @@ namespace MissionPlanner.Controls
                             drawstring(item.Header + "NaN", font, fontsize + 2,
                                 _redBrush, this.Width / 8, height);
                         }
+                        else if (item.Item.Name == "ice_temp_alt" && Double.IsNaN(item.GetValue))
+                        {
+                            drawstring(item.Header + "NaN", font, fontsize + 2,
+                                _redBrush, this.Width / 8, height);
+                        }
                         else
                         {
                             drawstring(item.Header + item.GetValue.ToString("0.##"), font, fontsize + 2,

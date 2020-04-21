@@ -69,7 +69,7 @@ namespace MissionPlanner.Maps
                 g.DrawLine(new Pen(Color.Orange, 2), 0.0f, 0.0f,
                     (float) Math.Cos((target - 90) * MathHelper.deg2rad) * length,
                     (float) Math.Sin((target - 90) * MathHelper.deg2rad) * length);
-            if (DisplayGPSYaw && ((gps_yaw/100) != 0))
+            if (DisplayGPSYaw && ((gps_yaw/100) != 0 || gps_yaw == 65535))
                 g.DrawLine(new Pen(Color.Blue, 2), 0.0f, 0.0f,
                     (float)Math.Cos((gps_yaw/100 - 90) * MathHelper.deg2rad) * length,
                     (float)Math.Sin((gps_yaw/100 - 90) * MathHelper.deg2rad) * length);
